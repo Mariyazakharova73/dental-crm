@@ -1,0 +1,190 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "firstName": "Анна",
+      "lastName": "Иванова",
+      "phone": "+7 (999) 123-45-67",
+      "birthDate": "1990-05-15",
+      "email": "anna.ivanova@mail.ru",
+      "comment": "Аллергия на лидокаин"
+    },
+    {
+      "id": 2,
+      "firstName": "Дмитрий",
+      "lastName": "Петров",
+      "phone": "+7 (999) 234-56-78",
+      "birthDate": "1985-11-22",
+      "email": "dmitry.petrov@mail.ru",
+      "comment": ""
+    },
+    {
+      "id": 3,
+      "firstName": "Елена",
+      "lastName": "Сидорова",
+      "phone": "+7 (999) 345-67-89",
+      "birthDate": "1998-03-08",
+      "email": "elena.sidorova@mail.ru",
+      "comment": "Беременность — 2 триместр"
+    }
+  ],
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Смирнов Алексей Викторович",
+      "specialization": "Терапевт",
+      "experience": 12,
+      "schedule": {
+        "monday": ["09:00", "17:00"],
+        "tuesday": ["09:00", "17:00"],
+        "wednesday": ["09:00", "17:00"],
+        "thursday": ["09:00", "17:00"],
+        "friday": ["09:00", "15:00"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Козлова Мария Сергеевна",
+      "specialization": "Хирург",
+      "experience": 8,
+      "schedule": {
+        "monday": ["10:00", "18:00"],
+        "tuesday": ["10:00", "18:00"],
+        "wednesday": ["10:00", "18:00"],
+        "thursday": ["10:00", "18:00"],
+        "friday": ["10:00", "16:00"]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Новиков Игорь Павлович",
+      "specialization": "Ортодонт",
+      "experience": 15,
+      "schedule": {
+        "monday": ["11:00", "19:00"],
+        "wednesday": ["11:00", "19:00"],
+        "friday": ["11:00", "19:00"]
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Лечение кариеса",
+      "price": 4500,
+      "duration": 60,
+      "description": "Лечение кариеса с установкой пломбы"
+    },
+    {
+      "id": 2,
+      "name": "Профессиональная чистка",
+      "price": 3500,
+      "duration": 45,
+      "description": "Удаление зубного камня и налёта"
+    },
+    {
+      "id": 3,
+      "name": "Имплантация",
+      "price": 45000,
+      "duration": 120,
+      "description": "Установка зубного импланта"
+    },
+    {
+      "id": 4,
+      "name": "Установка брекетов",
+      "price": 80000,
+      "duration": 90,
+      "description": "Консультация и установка брекет-системы"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "patientId": 1,
+      "doctorId": 1,
+      "serviceId": 2,
+      "date": "2026-07-12T10:00:00",
+      "status": "confirmed",
+      "comment": "Плановая чистка"
+    },
+    {
+      "id": 2,
+      "patientId": 2,
+      "doctorId": 2,
+      "serviceId": 1,
+      "date": "2026-07-12T14:30:00",
+      "status": "created",
+      "comment": ""
+    },
+    {
+      "id": 3,
+      "patientId": 3,
+      "doctorId": 3,
+      "serviceId": 4,
+      "date": "2026-07-13T11:00:00",
+      "status": "confirmed",
+      "comment": "Первичная консультация"
+    },
+    {
+      "id": 4,
+      "patientId": 1,
+      "doctorId": 1,
+      "serviceId": 1,
+      "date": "2026-06-20T09:00:00",
+      "status": "completed",
+      "comment": "Лечение завершено"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "patientId": 1,
+      "amount": 3500,
+      "date": "2026-06-20",
+      "status": "paid"
+    },
+    {
+      "id": 2,
+      "patientId": 2,
+      "amount": 4500,
+      "date": "2026-07-01",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "patientId": 3,
+      "amount": 80000,
+      "date": "2026-07-05",
+      "status": "partial"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Заказать расходные материалы",
+      "description": "Проверить остатки и оформить заказ на пломбировочные материалы",
+      "status": "new",
+      "priority": "high",
+      "assignee": "Администратор",
+      "deadline": "2026-07-15"
+    },
+    {
+      "id": 2,
+      "title": "Подготовить кабинет №3",
+      "description": "Провести дезинфекцию после хирургического приёма",
+      "status": "in_progress",
+      "priority": "medium",
+      "assignee": "Медсестра",
+      "deadline": "2026-07-12"
+    },
+    {
+      "id": 3,
+      "title": "Обновить прайс-лист",
+      "description": "Внести новые цены на услуги имплантации",
+      "status": "done",
+      "priority": "low",
+      "assignee": "Администратор",
+      "deadline": "2026-07-10"
+    }
+  ]
+}
