@@ -20,22 +20,22 @@
 
 ## Стек технологий
 
-**Core**
-Next.js
-React
+**Core**:
+Next.js,
+React,
 TypeScript
 
-**Стилизация**
-Tailwind CSS
+**Стилизация**:
+Tailwind CSS,
 shadcn/ui
 
-**Состояние и данные**
-TanStack Query
-Zustand
+**Состояние и данные**:
+TanStack Query,
+Zustand,
 Axios
 
-**Формы и UI**
-React Hook Form
+**Формы и UI**:
+React Hook Form,
 Zod
 
 ---
