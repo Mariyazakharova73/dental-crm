@@ -16,6 +16,7 @@ export function HeaderUserMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
+        className="cursor-pointer"
         render={
           <Button
             variant="ghost"

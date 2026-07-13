@@ -1,5 +1,7 @@
 export type EntityId = number;
 
+export type Money = number;
+
 export interface BaseEntity {
   id: EntityId;
 }
@@ -15,7 +17,12 @@ export interface ApiError {
   status?: number;
 }
 
-export type SortOrder = "asc" | "desc";
+export const SORT_ORDER = {
+  ASC: "asc",
+  DESC: "desc",
+} as const;
+
+export type SortOrder = ValueOf<typeof SORT_ORDER>;
 
 export interface SelectOption<T = string> {
   label: string;
@@ -24,28 +31,7 @@ export interface SelectOption<T = string> {
 
 export type ValueOf<T> = T[keyof T];
 
-// export interface PaginationParams {
-//   page: number;
-//   limit: number;
-// }
-
-// export interface PaginatedResponse<T> {
-//   data: T[];
-//   total: number;
-//   page: number;
-//   limit: number;
-// }
-
-// export interface ListParams {
-//   search?: string;
-//   sortBy?: string;
-//   sortOrder?: SortOrder;
-// }
-
-// export interface TableColumn<T> {
-//   key: keyof T;
-//   label: string;
-//   sortable?: boolean;
-// }
-
-// export type Money = number;
+export interface PaginatedResponse<T> {
+  data: T[];
+  total: number;
+}

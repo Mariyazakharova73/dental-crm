@@ -10,3 +10,5 @@ export type {
   SortOrder,
   ValueOf,
 } from "./common";
+
+export { SORT_ORDER } from "./common";

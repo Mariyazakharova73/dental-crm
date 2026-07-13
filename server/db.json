@@ -26,6 +26,87 @@
       "birthDate": "1998-03-08",
       "email": "elena.sidorova@mail.ru",
       "comment": "Беременность — 2 триместр"
+    },
+    {
+      "id": 4,
+      "firstName": "Михаил",
+      "lastName": "Кузнецов",
+      "phone": "+7 (999) 456-78-90",
+      "birthDate": "1978-07-19",
+      "email": "mikhail.kuznetsov@mail.ru",
+      "comment": "Бруксизм, нужна капа на ночь"
+    },
+    {
+      "id": 5,
+      "firstName": "Ольга",
+      "lastName": "Морозова",
+      "phone": "+7 (999) 567-89-01",
+      "birthDate": "1992-12-03",
+      "email": "olga.morozova@gmail.com",
+      "comment": ""
+    },
+    {
+      "id": 6,
+      "firstName": "Артём",
+      "lastName": "Волков",
+      "phone": "+7 (999) 678-90-12",
+      "birthDate": "2005-01-28",
+      "email": "artem.volkov@yandex.ru",
+      "comment": "Несовершеннолетний, запись только с родителем"
+    },
+    {
+      "id": 7,
+      "firstName": "Наталья",
+      "lastName": "Фёдорова",
+      "phone": "+7 (999) 789-01-23",
+      "birthDate": "1988-09-14",
+      "email": "natalia.fedorova@mail.ru",
+      "comment": "Диабет 2 типа — согласование анестезии"
+    },
+    {
+      "id": 8,
+      "firstName": "Сергей",
+      "lastName": "Новиков",
+      "phone": "+7 (999) 890-12-34",
+      "birthDate": "1972-04-07",
+      "email": "sergey.novikov@mail.ru",
+      "comment": "Имплантация — этап 2"
+    },
+    {
+      "id": 9,
+      "firstName": "Мария",
+      "lastName": "Лебедева",
+      "phone": "+7 (999) 901-23-45",
+      "birthDate": "1995-06-21",
+      "email": "maria.lebedeva@gmail.com",
+      "comment": "Отбеливание — переносила из-за беременности"
+    },
+    {
+      "id": 10,
+      "firstName": "Игорь",
+      "lastName": "Соколов",
+      "phone": "+7 (999) 012-34-56",
+      "birthDate": "1980-10-30",
+      "email": "igor.sokolov@yandex.ru",
+      "comment": ""
+    },
+    {
+      "id": 11,
+      "firstName": "Виктория",
+      "lastName": "Попова",
+      "phone": "+7 (999) 123-56-78",
+      "birthDate": "2000-02-11",
+      "email": "viktoria.popova@mail.ru",
+      "comment": "Ортодонтия — брекеты, контроль раз в месяц"
+    },
+    {
+      "id": 12,
+      "firstName": "Алексей",
+      "lastName": "Орлов",
+      "phone": "+7 (999) 234-67-89",
+      "birthDate": "1965-08-25",
+      "email": "alexey.orlov@mail.ru",
+      "comment": "Гипертония, принимает эналаприл"
     }
   ],
   "doctors": [
