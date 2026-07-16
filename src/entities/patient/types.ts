@@ -7,3 +7,5 @@ export interface Patient {
   email: string;
   comment: string;
 }
+
+export type CreatePatientPayload = Omit<Patient, "id">;

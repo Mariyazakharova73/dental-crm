@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import { ThemeProvider } from "@/app/providers";
 import "@/app/styles/globals.css";
+import { Toaster } from "sonner";
 import { QueryProvider } from "./providers/query-provider";
 
 const inter = Inter({
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <ThemeProvider>
           <QueryProvider>{children}</QueryProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
