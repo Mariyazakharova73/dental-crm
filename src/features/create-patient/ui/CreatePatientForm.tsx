@@ -3,15 +3,15 @@
 import { useCreatePatient } from "@/entities/patient";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
-import { Label } from "@/shared/ui/label";
 import { Textarea } from "@/shared/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from 'sonner';
 import {
   createPatientSchema,
   type CreatePatientFormValues,
 } from "../model/create-patient-schema";
-import { toast } from 'sonner';
+import { FieldForm } from "@/shared/ui/field-form";
 
 interface CreatePatientFormProps {
   onSuccess?: () => void;
@@ -53,57 +53,56 @@ export function CreatePatientForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Имя" error={errors.firstName?.message}>
-          <Input
-            placeholder="Анна"
-            aria-invalid={!!errors.firstName}
-            {...register("firstName")}
-          />
-        </Field>
-
-        <Field label="Фамилия" error={errors.lastName?.message}>
+      <FieldForm label="Фамилия" error={errors.lastName?.message}>
           <Input
             placeholder="Иванова"
             aria-invalid={!!errors.lastName}
             {...register("lastName")}
           />
-        </Field>
+        </FieldForm>
+        <FieldForm label="Имя" error={errors.firstName?.message}>
+          <Input
+            placeholder="Анна"
+            aria-invalid={!!errors.firstName}
+            {...register("firstName")}
+          />
+        </FieldForm>
       </div>
 
-      <Field label="Телефон" error={errors.phone?.message}>
+      <FieldForm label="Телефон" error={errors.phone?.message}>
         <Input
           type="tel"
           placeholder="+7 (999) 123-45-67"
           aria-invalid={!!errors.phone}
           {...register("phone")}
         />
-      </Field>
+      </FieldForm>
 
-      <Field label="Дата рождения" error={errors.birthDate?.message}>
+      <FieldForm label="Дата рождения" error={errors.birthDate?.message}>
         <Input
           type="date"
           aria-invalid={!!errors.birthDate}
           {...register("birthDate")}
         />
-      </Field>
+      </FieldForm>
 
-      <Field label="Email" error={errors.email?.message}>
+      <FieldForm label="Email" error={errors.email?.message}>
         <Input
           type="email"
           placeholder="anna@mail.ru"
           aria-invalid={!!errors.email}
           {...register("email")}
         />
-      </Field>
+      </FieldForm>
 
-      <Field label="Комментарий" error={errors.comment?.message}>
+      <FieldForm label="Комментарий" error={errors.comment?.message}>
         <Textarea
           placeholder="Аллергии, особенности..."
           rows={3}
           aria-invalid={!!errors.comment}
           {...register("comment")}
         />
-      </Field>
+      </FieldForm>
 
       {isError && (
         <p className="text-destructive text-sm">
@@ -123,18 +122,3 @@ export function CreatePatientForm({
   );
 }
 
-interface FieldProps {
-  label: string;
-  error?: string;
-  children: React.ReactNode;
-}
-
-function Field({ label, error, children }: FieldProps) {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <Label>{label}</Label>
-      {children}
-      {error && <p className="text-destructive text-xs">{error}</p>}
-    </div>
-  );
-}
