@@ -2,16 +2,16 @@
 
 import { useCreatePatient } from "@/entities/patient";
 import { Button } from "@/shared/ui/button";
+import { FieldForm } from "@/shared/ui/field-form";
 import { Input } from "@/shared/ui/input";
 import { Textarea } from "@/shared/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { toast } from 'sonner';
+import { toast } from "sonner";
 import {
   createPatientSchema,
   type CreatePatientFormValues,
 } from "../model/create-patient-schema";
-import { FieldForm } from "@/shared/ui/field-form";
 
 interface CreatePatientFormProps {
   onSuccess?: () => void;
@@ -30,6 +30,7 @@ export function CreatePatientForm({
     formState: { errors },
   } = useForm<CreatePatientFormValues>({
     resolver: zodResolver(createPatientSchema),
+    mode: "onBlur",
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -53,7 +54,7 @@ export function CreatePatientForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-      <FieldForm label="Фамилия" error={errors.lastName?.message}>
+        <FieldForm label="Фамилия" error={errors.lastName?.message}>
           <Input
             placeholder="Иванова"
             aria-invalid={!!errors.lastName}
@@ -121,4 +122,3 @@ export function CreatePatientForm({
     </form>
   );
 }
-
