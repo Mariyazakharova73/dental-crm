@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src/ next.config.ts postcss.config.mjs",
-    "lint:fix": "eslint src/ next.config.ts postcss.config.mjs --fix",
+    "lint": "eslint src/ app/ next.config.ts postcss.config.mjs",
+    "lint:fix": "eslint src/ app/ next.config.ts postcss.config.mjs --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "server": "json-server --watch server/db.json --port 3001"
