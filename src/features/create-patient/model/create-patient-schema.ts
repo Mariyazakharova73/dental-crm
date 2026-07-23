@@ -11,7 +11,11 @@ export const createPatientSchema = z.object({
       PHONE_RU_REGEX,
       "Введите телефон в формате +79991234567 или 89991234567",
     ),
-  birthDate: z.iso.date("Укажите дату рождения"),
+  birthDate: z.iso
+    .date("Укажите дату рождения")
+    .refine((date) => date <= new Date().toISOString().slice(0, 10), {
+      message: "Дата рождения не может быть в будущем",
+    }),
   email: z.string().trim().regex(EMAIL_REGEX, "Введите корректный email"),
   comment: z.string(),
 });

@@ -73,6 +73,8 @@ export function CreatePatientForm({
       <FieldForm label="Телефон" error={errors.phone?.message}>
         <Input
           type="tel"
+          inputMode="tel"
+          maxLength={12}
           placeholder="+7 (999) 123-45-67"
           aria-invalid={!!errors.phone}
           {...register("phone")}
@@ -82,6 +84,7 @@ export function CreatePatientForm({
       <FieldForm label="Дата рождения" error={errors.birthDate?.message}>
         <Input
           type="date"
+          max={new Date().toISOString().slice(0, 10)}
           aria-invalid={!!errors.birthDate}
           {...register("birthDate")}
         />
