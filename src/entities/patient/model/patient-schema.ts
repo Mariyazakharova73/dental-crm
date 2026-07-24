@@ -1,7 +1,7 @@
 import { EMAIL_REGEX, PHONE_RU_REGEX } from "@/shared/lib/validation/regex";
 import { z } from "zod";
 
-export const createPatientSchema = z.object({
+export const patientFormSchema = z.object({
   firstName: z.string().trim().min(1, "Введите имя"),
   lastName: z.string().trim().min(1, "Введите фамилию"),
   phone: z
@@ -20,4 +20,4 @@ export const createPatientSchema = z.object({
   comment: z.string(),
 });
 
-export type CreatePatientFormValues = z.infer<typeof createPatientSchema>;
+export type PatientFormValues = z.infer<typeof patientFormSchema>;

@@ -10,3 +10,6 @@ export type { Patient, CreatePatientPayload } from "./types";
 export { PATIENT_COMMENT_FILTER } from "./lib/patient-comment-filter";
 export type { PatientCommentFilter } from "./lib/patient-comment-filter";
 export { useCreatePatient } from "./model/use-create-patient";
+export { useUpdatePatient } from "./model/use-update-patient";
+export { patientFormSchema } from "./model/patient-schema";
+export type { PatientFormValues } from "./model/patient-schema";

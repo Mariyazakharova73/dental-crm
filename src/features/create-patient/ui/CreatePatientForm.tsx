@@ -1,6 +1,10 @@
 "use client";
 
-import { useCreatePatient } from "@/entities/patient";
+import {
+  patientFormSchema,
+  useCreatePatient,
+  type PatientFormValues,
+} from "@/entities/patient";
 import { Button } from "@/shared/ui/button";
 import { FieldForm } from "@/shared/ui/field-form";
 import { Input } from "@/shared/ui/input";
@@ -8,10 +12,6 @@ import { Textarea } from "@/shared/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import {
-  createPatientSchema,
-  type CreatePatientFormValues,
-} from "../model/create-patient-schema";
 
 interface CreatePatientFormProps {
   onSuccess?: () => void;
@@ -28,8 +28,8 @@ export function CreatePatientForm({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreatePatientFormValues>({
-    resolver: zodResolver(createPatientSchema),
+  } = useForm<PatientFormValues>({
+    resolver: zodResolver(patientFormSchema),
     mode: "onBlur",
     defaultValues: {
       firstName: "",
@@ -41,7 +41,7 @@ export function CreatePatientForm({
     },
   });
 
-  const onSubmit = (values: CreatePatientFormValues) => {
+  const onSubmit = (values: PatientFormValues) => {
     mutate(values, {
       onSuccess: () => {
         reset();

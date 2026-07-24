@@ -44,22 +44,26 @@ Zod
 
 Проект построен по методологии **[Feature-Sliced Design (FSD)](https://feature-sliced.design/)** — слои изолированы, зависимости направлены строго сверху вниз.
 
+Роутинг Next.js App Router — в корневом `app/` (тонкие re-export). UI и бизнес-логика — в `src/` по слоям FSD ([гайд FSD + Next.js](https://fsd.how/ru/docs/guides/tech/with-nextjs/)).
+
 ```
+app/                  # Next.js App Router (re-export из src/pages и layouts)
+pages/                # Заглушка README (чтобы Next.js не брал src/pages)
+server/               # Mock API: db.json (json-server)
 src/
-├── app/              # Роутинг Next.js, providers, стили, layout
-│   └── (dashboard)/  # Страницы CRM
+├── app/              # Providers, layouts, стили
+├── pages/            # Композиция страниц (плоские слайсы)
 ├── widgets/          # Крупные UI-блоки (sidebar, header, таблицы, графики)
 ├── features/         # Пользовательские действия (создание, редактирование, фильтры)
 ├── entities/         # Бизнес-сущности (patient, doctor, appointment...)
-└── shared/           # Переиспользуемый код (ui, api, hooks, utils)
+└── shared/           # Переиспользуемый код (ui, api, hooks, lib, utils, config, types)
 ```
-
 ---
 
 ## Этапы разработки
 
 - [x] **Этап 1** — Настройка проекта, FSD-структура, layout
-- [ ] **Этап 2** — Модуль пациентов (таблица, CRUD, формы, фильтры)
+- [ ] **Этап 2** — Модуль пациентов (таблица, CRUD, формы, фильтры) ← текущий
 - [ ] **Этап 3** — Карточка пациента (визиты, записи, платежи)
 - [ ] **Этап 4** — Врачи и расписание
 - [ ] **Этап 5** — Календарь записей
@@ -131,13 +135,16 @@ Base URL: `http://localhost:3001`
 /                          → редирект на /dashboard
 /dashboard                 → главная страница
 /patients                  → список пациентов
+/patients/create           → создание пациента
 /patients/:id              → карточка пациента
 /doctors                   → список врачей
 /appointments              → календарь записей
 /services                  → каталог услуг
 /finance                   → финансовая аналитика
 /tasks                     → Kanban-доска задач
-/settings                  → настройки клиники
+/settings/profile          → профиль
+/settings/clinic           → настройки клиники
+/settings/theme            → тема оформления
 ```
 
 ---

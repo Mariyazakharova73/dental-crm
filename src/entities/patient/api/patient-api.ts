@@ -2,7 +2,7 @@ import { api } from "@/shared/api";
 import { API_ENDPOINTS } from "@/shared/config/api-endpoints";
 import { SortOrder } from "@/shared/types";
 import { PaginatedResponse } from "@/shared/types/common";
-import type { CreatePatientPayload, Patient } from "../types";
+import type { CreatePatientPayload, Patient, UpdatePatientPayload } from "../types";
 
 interface GetPatientsParams {
   q?: string;
@@ -41,5 +41,13 @@ export async function createPatient(
   payload: CreatePatientPayload,
 ): Promise<Patient> {
   const { data } = await api.post<Patient>(API_ENDPOINTS.patients, payload);
+  return data;
+}
+
+export async function updatePatient(
+  id: number,
+  payload: UpdatePatientPayload,
+): Promise<Patient> {
+  const { data } = await api.put<Patient>(API_ENDPOINTS.patient(id), payload);
   return data;
 }

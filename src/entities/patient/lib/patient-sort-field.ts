@@ -1,4 +1,5 @@
 import type { ValueOf } from "@/shared/types";
+
 export const PATIENT_SORT_FIELD = {
   NAME: "name",
   BIRTH_DATE: "birthDate",

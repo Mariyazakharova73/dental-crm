@@ -9,3 +9,5 @@ export interface Patient {
 }
 
 export type CreatePatientPayload = Omit<Patient, "id">;
+
+export type UpdatePatientPayload = CreatePatientPayload;

@@ -1,4 +1,5 @@
 import type { ValueOf } from "@/shared/types";
+
 export const PATIENT_COMMENT_FILTER = {
   ALL: "all",
   WITH_COMMENT: "with_comment",
