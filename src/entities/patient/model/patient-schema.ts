@@ -21,3 +21,12 @@ export const patientFormSchema = z.object({
 });
 
 export type PatientFormValues = z.infer<typeof patientFormSchema>;
+
+export const emptyPatientFormValues: PatientFormValues = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  birthDate: "",
+  email: "",
+  comment: "",
+};
