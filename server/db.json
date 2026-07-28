@@ -46,15 +46,6 @@
       "comment": ""
     },
     {
-      "firstName": "Артём",
-      "lastName": "Волк",
-      "phone": "89278290982",
-      "birthDate": "2005-01-28",
-      "email": "artem.volkov@yandex.ru",
-      "comment": "Несовершеннолетний, запись только с родителем",
-      "id": 6
-    },
-    {
       "id": 7,
       "firstName": "Наталья",
       "lastName": "Фёдорова",

@@ -51,3 +51,7 @@ export async function updatePatient(
   const { data } = await api.put<Patient>(API_ENDPOINTS.patient(id), payload);
   return data;
 }
+
+export async function deletePatient(id: number): Promise<void> {
+  await api.delete(API_ENDPOINTS.patient(id));
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Patient } from "@/entities/patient";
+import { DeletePatientDialog } from "@/features/delete-patient";
 import { EditPatientDialog } from "@/features/edit-patient";
 import { routes } from "@/shared/config/routes";
 import { Button } from "@/shared/ui/button";
@@ -22,6 +23,7 @@ import { useState } from "react";
 
 export function PatientRowActions({ patient }: { patient: Patient }) {
   const [editOpen, setEditOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   return (
     <>
@@ -44,7 +46,10 @@ export function PatientRowActions({ patient }: { patient: Patient }) {
             Редактировать
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive" disabled>
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={() => setDeleteOpen(true)}
+          >
             <Trash2Icon />
             Удалить
           </DropdownMenuItem>
@@ -55,6 +60,11 @@ export function PatientRowActions({ patient }: { patient: Patient }) {
         patient={patient}
         open={editOpen}
         onOpenChange={setEditOpen}
+      />
+      <DeletePatientDialog
+        patient={patient}
+        open={deleteOpen}
+        onOpenChange={setDeleteOpen}
       />
     </>
   );
