@@ -18,3 +18,4 @@ export {
 export type { PatientFormValues } from "./model/patient-schema";
 export { PatientForm } from "./ui/patient-form";
 export { useDeletePatient } from "./model/use-delete-patient";
+export { usePatient } from "./model/use-patient";

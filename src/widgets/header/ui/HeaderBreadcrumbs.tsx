@@ -16,7 +16,7 @@ import {
 
 export function HeaderBreadcrumbs() {
   const pathname = usePathname();
-  const breadcrumbs = getBreadcrumbs(pathname);
+  const breadcrumbs = getBreadcrumbs(pathname || "");
 
   return (
     <Breadcrumb className="hidden min-w-0 sm:block">

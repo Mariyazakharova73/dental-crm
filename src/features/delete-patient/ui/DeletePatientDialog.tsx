@@ -21,12 +21,14 @@ interface DeletePatientDialogProps {
   patient: Patient;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onSuccess?: () => void;
 }
 
 export function DeletePatientDialog({
   patient,
   open,
   onOpenChange,
+  onSuccess,
 }: DeletePatientDialogProps) {
   const { mutate, isPending, isError, error, reset } = useDeletePatient();
 
@@ -36,6 +38,7 @@ export function DeletePatientDialog({
         reset();
         toast.success("Пациент удалён");
         onOpenChange(false);
+        onSuccess?.();
       },
     });
   };
