@@ -1,6 +1,6 @@
 import { SortOrder } from "@/shared/types";
 
-export type PatientListParams = {
+export interface PatientListParams {
   q?: string;
   sort?: string;
   order?: SortOrder;

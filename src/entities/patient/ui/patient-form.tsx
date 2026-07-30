@@ -1,5 +1,6 @@
 "use client";
 
+import { Nullable } from "@/shared/types";
 import { Button } from "@/shared/ui/button";
 import { FieldForm } from "@/shared/ui/field-form";
 import { Input } from "@/shared/ui/input";
@@ -16,7 +17,7 @@ interface PatientFormProps {
   onSubmit: (values: PatientFormValues) => void;
   onCancel?: () => void;
   isPending?: boolean;
-  errorMessage?: string | null;
+  errorMessage?: Nullable<string>;
 }
 
 export function PatientForm({
