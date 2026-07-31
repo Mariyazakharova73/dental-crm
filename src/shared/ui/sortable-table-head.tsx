@@ -1,33 +1,27 @@
 "use client";
 
-import {
-  ArrowDownIcon,
-  ArrowUpDownIcon,
-  ArrowUpIcon,
-} from "lucide-react";
-
-import type { PatientSortField } from "@/entities/patient";
-import { cn } from "@/shared/utils";
+import { SORT_ORDER, type SortOrder } from "@/shared/types";
 import { TableHead } from "@/shared/ui/table";
-import { SORT_ORDER, SortOrder } from '@/shared/types';
+import { cn } from "@/shared/utils";
+import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from "lucide-react";
 
-interface SortableTableHeadProps {
+interface SortableTableHeadProps<T extends string> {
   label: string;
-  field: PatientSortField;
-  sortField: PatientSortField;
+  field: T;
+  sortField: T;
   sortDirection: SortOrder;
-  onSort: (field: PatientSortField) => void;
+  onSort: (field: T) => void;
   className?: string;
 }
 
-export function SortableTableHead({
+export function SortableTableHead<T extends string>({
   label,
   field,
   sortField,
   sortDirection,
   onSort,
   className,
-}: SortableTableHeadProps) {
+}: SortableTableHeadProps<T>) {
   const isActive = sortField === field;
 
   return (

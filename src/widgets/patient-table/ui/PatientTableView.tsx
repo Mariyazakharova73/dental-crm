@@ -1,7 +1,9 @@
 "use client";
 
 import type { Patient, PatientSortField } from "@/entities/patient";
-import { SortableTableHead } from "@/features/filter-patients";
+
+import type { SortOrder } from "@/shared/types";
+import { SortableTableHead } from "@/shared/ui/sortable-table-head";
 import {
   Table,
   TableBody,
@@ -10,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/shared/ui/table";
-import type { SortOrder } from "@/shared/types";
 import { PATIENT_TABLE_COLUMNS } from "../lib/patient-table-columns";
 import { PatientTableRow } from "./PatientTableRow";
 import { PatientTableSkeleton } from "./PatientTableSkeleton";

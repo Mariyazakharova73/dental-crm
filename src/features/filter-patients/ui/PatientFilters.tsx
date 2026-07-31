@@ -1,12 +1,10 @@
 "use client";
 
-import { SearchIcon } from "lucide-react";
-
 import {
   PATIENT_COMMENT_FILTER,
   type PatientCommentFilter,
 } from "@/entities/patient";
-import { Input } from "@/shared/ui/input";
+import { SearchInput } from "@/shared/ui/search-input";
 import {
   Select,
   SelectContent,
@@ -39,15 +37,11 @@ export function PatientFilters({
   )?.label;
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-      <div className="relative w-full sm:max-w-sm">
-        <SearchIcon className="text-muted-foreground absolute top-1/2 left-2.5 size-4 -translate-y-1/2" />
-        <Input
-          placeholder="Поиск по имени, телефону, email..."
-          value={search}
-          onChange={(e) => onSearchChange(e.target.value)}
-          className="pl-8"
-        />
-      </div>
+      <SearchInput
+        value={search}
+        onChange={onSearchChange}
+        placeholder="Поиск по имени, телефону, email..."
+      />
 
       <Select
         value={commentFilter}

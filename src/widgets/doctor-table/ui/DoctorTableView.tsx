@@ -1,7 +1,7 @@
 "use client";
 
 import type { Doctor, DoctorSortField } from "@/entities/doctor";
-import { SortableTableHead } from "@/features/filter-doctors";
+
 import type { SortOrder } from "@/shared/types";
 import {
   Table,
@@ -14,6 +14,7 @@ import {
 import { DOCTOR_TABLE_COLUMNS } from "../lib/doctor-table-columns";
 import { DoctorTableRow } from "./DoctorTableRow";
 import { DoctorTableSkeleton } from "./DoctorTableSkeleton";
+import { SortableTableHead } from '@/shared/ui/sortable-table-head';
 
 interface DoctorTableViewProps {
   doctors: Doctor[];

@@ -3,7 +3,8 @@
 import { filterPatients, Patient, usePatients } from "@/entities/patient";
 import { usePatientFilters } from "@/features/filter-patients";
 import { useMemo } from "react";
-import { PatientTablePagination } from "./PatientTablePagination";
+
+import { TablePagination } from "@/shared/ui/table-pagination";
 import { PatientTableToolbar } from "./PatientTableToolbar";
 import { PatientTableView } from "./PatientTableView";
 
@@ -59,7 +60,7 @@ export function PatientTable() {
         onSort={toggleSort}
       />
 
-      <PatientTablePagination
+      <TablePagination
         page={page}
         total={total}
         displayedCount={displayedPatients.length}

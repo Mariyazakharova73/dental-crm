@@ -2,7 +2,7 @@
 
 import { type Doctor, useDoctors } from "@/entities/doctor";
 import { useDoctorFilters } from "@/features/filter-doctors";
-import { DoctorTablePagination } from "./DoctorTablePagination";
+import { TablePagination } from "@/shared/ui/table-pagination";
 import { DoctorTableToolbar } from "./DoctorTableToolbar";
 import { DoctorTableView } from "./DoctorTableView";
 
@@ -46,7 +46,7 @@ export function DoctorTable() {
         onSort={toggleSort}
       />
 
-      <DoctorTablePagination
+      <TablePagination
         page={page}
         total={total}
         displayedCount={doctors.length}
