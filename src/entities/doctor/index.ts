@@ -16,6 +16,7 @@ export { doctorKeys } from "./model/query-keys";
 export type { DoctorListParams } from "./model/query-keys";
 export { useCreateDoctor } from "./model/use-create-doctor";
 export { useDeleteDoctor } from "./model/use-delete-doctor";
+export { useDoctor } from "./model/use-doctor";
 export { useDoctors } from "./model/use-doctors";
 export { useUpdateDoctor } from "./model/use-update-doctor";
 export type {

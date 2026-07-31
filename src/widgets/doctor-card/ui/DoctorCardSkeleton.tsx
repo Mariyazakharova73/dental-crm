@@ -1,5 +1,5 @@
 import { EntityCardSkeleton } from "@/shared/ui/entity-card-skeleton";
 
-export function PatientCardSkeleton() {
+export function DoctorCardSkeleton() {
   return <EntityCardSkeleton />;
 }
