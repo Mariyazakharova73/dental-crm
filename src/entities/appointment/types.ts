@@ -26,3 +26,5 @@ export interface AppointmentListItem extends Appointment {
   patient?: Patient;
   doctor?: Doctor;
 }
+
+export type CreateAppointmentPayload = Omit<Appointment, "id">;
