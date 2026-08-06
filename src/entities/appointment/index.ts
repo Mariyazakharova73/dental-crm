@@ -16,3 +16,5 @@ export {
   type AppointmentStatus,
 } from "./types";
 export type { CreateAppointmentPayload } from "./types";
+export { AppointmentForm } from "./ui/appointment-form";
+
