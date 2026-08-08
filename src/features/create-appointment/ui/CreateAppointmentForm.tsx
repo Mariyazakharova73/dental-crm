@@ -1,9 +1,11 @@
+"use client";
+
 import {
   APPOINTMENT_STATUS,
   AppointmentForm,
-  AppointmentFormValues,
   emptyAppointmentFormValues,
   useCreateAppointment,
+  type AppointmentFormValues,
 } from "@/entities/appointment";
 import { toast } from "sonner";
 
@@ -30,6 +32,7 @@ export function CreateAppointmentForm({
       },
     );
   };
+
   return (
     <AppointmentForm
       defaultValues={emptyAppointmentFormValues}
@@ -37,7 +40,7 @@ export function CreateAppointmentForm({
       onCancel={onCancel}
       isPending={isPending}
       errorMessage={
-        isError ? error.message || "Не удалось создать запись " : null
+        isError ? error.message || "Не удалось создать запись" : null
       }
     />
   );

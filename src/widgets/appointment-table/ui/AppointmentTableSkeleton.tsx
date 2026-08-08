@@ -18,6 +18,9 @@ export function AppointmentTableSkeleton() {
           <TableCell>
             <Skeleton className="h-5 w-24 rounded-full" />
           </TableCell>
+          <TableCell className="text-right">
+            <Skeleton className="ml-auto size-8 rounded-md" />
+          </TableCell>
         </TableRow>
       ))}
     </>

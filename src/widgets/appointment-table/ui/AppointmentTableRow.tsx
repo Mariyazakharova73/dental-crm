@@ -8,6 +8,7 @@ import {
 import { getFullName } from "@/entities/patient";
 import { Badge } from "@/shared/ui/badge";
 import { TableCell, TableRow } from "@/shared/ui/table";
+import { AppointmentRowActions } from "./AppointmentRowActions";
 
 interface AppointmentTableRowProps {
   appointment: AppointmentListItem;
@@ -46,6 +47,9 @@ export function AppointmentTableRow({ appointment }: AppointmentTableRowProps) {
         <Badge variant={statusVariant(appointment.status)}>
           {APPOINTMENT_STATUS_LABEL[appointment.status]}
         </Badge>
+      </TableCell>
+      <TableCell className="text-right">
+        <AppointmentRowActions appointment={appointment} />
       </TableCell>
     </TableRow>
   );

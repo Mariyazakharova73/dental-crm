@@ -19,4 +19,9 @@ export const APPOINTMENT_TABLE_COLUMNS = [
     label: "Статус",
     className: "",
   },
+  {
+    key: "actions",
+    label: "",
+    className: "w-12 text-right",
+  },
 ] as const;

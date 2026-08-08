@@ -5,6 +5,7 @@ import {
   useAppointments,
 } from "@/entities/appointment";
 import { useMemo } from "react";
+import { AppointmentTableToolbar } from "./AppointmentTableToolbar";
 import { AppointmentTableView } from "./AppointmentTableView";
 
 const EMPTY_APPOINTMENTS: AppointmentListItem[] = [];
@@ -21,6 +22,8 @@ export function AppointmentTable() {
 
   return (
     <div className="flex flex-col gap-4">
+      <AppointmentTableToolbar />
+
       {isError && (
         <p className="text-destructive text-sm">
           {error.message || "Не удалось загрузить записи"}
