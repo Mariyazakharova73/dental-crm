@@ -1,5 +1,6 @@
 export {
   createAppointment,
+  deleteAppointment,
   getAppointments,
   updateAppointment,
 } from "./api/appointment-api";
@@ -13,6 +14,7 @@ export {
 export { appointmentKeys } from "./model/query-keys";
 export { useAppointments } from "./model/use-appointments";
 export { useCreateAppointment } from "./model/use-create-appointment";
+export { useDeleteAppointment } from "./model/use-delete-appointment";
 export { useUpdateAppointment } from "./model/use-update-appointment";
 export {
   APPOINTMENT_STATUS,
@@ -25,4 +27,3 @@ export type {
   UpdateAppointmentPayload,
 } from "./types";
 export { AppointmentForm } from "./ui/appointment-form";
-

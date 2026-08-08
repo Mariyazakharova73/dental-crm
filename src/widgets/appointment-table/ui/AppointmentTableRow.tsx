@@ -1,32 +1,14 @@
 import {
-  APPOINTMENT_STATUS,
-  APPOINTMENT_STATUS_LABEL,
   formatAppointmentDate,
   type AppointmentListItem,
-  type AppointmentStatus,
 } from "@/entities/appointment";
 import { getFullName } from "@/entities/patient";
-import { Badge } from "@/shared/ui/badge";
+import { ChangeAppointmentStatus } from "@/features/change-appointment-status";
 import { TableCell, TableRow } from "@/shared/ui/table";
 import { AppointmentRowActions } from "./AppointmentRowActions";
 
 interface AppointmentTableRowProps {
   appointment: AppointmentListItem;
-}
-
-function statusVariant(
-  status: AppointmentStatus,
-): "default" | "secondary" | "outline" | "destructive" {
-  switch (status) {
-    case APPOINTMENT_STATUS.CONFIRMED:
-      return "default";
-    case APPOINTMENT_STATUS.COMPLETED:
-      return "secondary";
-    case APPOINTMENT_STATUS.CANCELLED:
-      return "destructive";
-    default:
-      return "outline";
-  }
 }
 
 export function AppointmentTableRow({ appointment }: AppointmentTableRowProps) {
@@ -44,9 +26,7 @@ export function AppointmentTableRow({ appointment }: AppointmentTableRowProps) {
       <TableCell className="hidden sm:table-cell">{patientLabel}</TableCell>
       <TableCell className="hidden md:table-cell">{doctorLabel}</TableCell>
       <TableCell>
-        <Badge variant={statusVariant(appointment.status)}>
-          {APPOINTMENT_STATUS_LABEL[appointment.status]}
-        </Badge>
+        <ChangeAppointmentStatus appointment={appointment} />
       </TableCell>
       <TableCell className="text-right">
         <AppointmentRowActions appointment={appointment} />

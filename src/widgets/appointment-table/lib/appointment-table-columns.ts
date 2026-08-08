@@ -17,11 +17,11 @@ export const APPOINTMENT_TABLE_COLUMNS = [
   {
     key: "status",
     label: "Статус",
-    className: "",
+    className: "min-w-[160px]",
   },
   {
     key: "actions",
     label: "",
-    className: "w-12 text-right",
+    className: "w-20 text-right",
   },
 ] as const;

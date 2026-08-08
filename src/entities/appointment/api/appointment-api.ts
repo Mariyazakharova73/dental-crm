@@ -32,3 +32,7 @@ export async function updateAppointment(
   );
   return data;
 }
+
+export async function deleteAppointment(id: number): Promise<void> {
+  await api.delete(API_ENDPOINTS.appointment(id));
+}

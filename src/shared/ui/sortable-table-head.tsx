@@ -30,7 +30,7 @@ export function SortableTableHead<T extends string>({
         type="button"
         onClick={() => onSort(field)}
         className={cn(
-          "hover:text-foreground -ml-2 inline-flex items-center gap-1 rounded-md px-2 py-1 transition-colors",
+          "hover:text-foreground -ml-2 inline-flex cursor-pointer items-center gap-1 rounded-md px-2 py-1 transition-colors",
           isActive ? "text-foreground font-semibold" : "text-muted-foreground",
         )}
       >
