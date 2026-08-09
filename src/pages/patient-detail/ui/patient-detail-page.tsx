@@ -6,6 +6,7 @@ import { EditPatientDialog } from "@/features/edit-patient";
 import { routes } from "@/shared/config/routes";
 import { EntityCardActions } from "@/shared/ui/entity-card-actions";
 import { EntityDetailLayout } from "@/shared/ui/entity-detail-layout";
+import { PatientAppointments } from "@/widgets/patient-appointments";
 import { PatientCard, PatientCardSkeleton } from "@/widgets/patient-card";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -42,6 +43,8 @@ export function PatientDetailPage() {
               />
             }
           />
+
+          <PatientAppointments patientId={patient.id} />
 
           <EditPatientDialog
             patient={patient}

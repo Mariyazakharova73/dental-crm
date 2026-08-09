@@ -4,21 +4,32 @@ import {
   type AppointmentListItem,
   useAppointments,
 } from "@/entities/appointment";
-import { useMemo } from "react";
+import { useAppointmentFilters } from "@/features/filter-appointments";
+import { TablePagination } from "@/shared/ui/table-pagination";
 import { AppointmentTableToolbar } from "./AppointmentTableToolbar";
 import { AppointmentTableView } from "./AppointmentTableView";
 
 const EMPTY_APPOINTMENTS: AppointmentListItem[] = [];
 
 export function AppointmentTable() {
-  const { data, isLoading, isError, error } = useAppointments();
+  const {
+    apiParams,
+    sortField,
+    sortDirection,
+    toggleSort,
+    page,
+    setPage,
+  } = useAppointmentFilters();
 
-  const appointments = useMemo(() => {
-    const list = data ?? EMPTY_APPOINTMENTS;
-    return [...list].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-  }, [data]);
+  const {
+    data: paginatedData,
+    isLoading,
+    isError,
+    error,
+  } = useAppointments(apiParams);
+
+  const appointments = paginatedData?.data ?? EMPTY_APPOINTMENTS;
+  const total = paginatedData?.total ?? 0;
 
   return (
     <div className="flex flex-col gap-4">
@@ -33,6 +44,17 @@ export function AppointmentTable() {
       <AppointmentTableView
         appointments={appointments}
         isLoading={isLoading}
+        sortField={sortField}
+        sortDirection={sortDirection}
+        onSort={toggleSort}
+      />
+
+      <TablePagination
+        page={page}
+        total={total}
+        displayedCount={appointments.length}
+        isLoading={isLoading}
+        onPageChange={setPage}
       />
     </div>
   );

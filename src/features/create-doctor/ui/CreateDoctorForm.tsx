@@ -3,6 +3,7 @@
 import {
   DoctorForm,
   emptyDoctorFormValues,
+  toDoctorSchedule,
   useCreateDoctor,
   type DoctorFormValues,
 } from "@/entities/doctor";
@@ -21,7 +22,12 @@ export function CreateDoctorForm({
 
   const onSubmit = (values: DoctorFormValues) => {
     mutate(
-      { ...values, schedule: {} },
+      {
+        name: values.name,
+        specialization: values.specialization,
+        experience: values.experience,
+        schedule: toDoctorSchedule(values.schedule),
+      },
       {
         onSuccess: () => {
           reset();

@@ -220,11 +220,15 @@
       "schedule": {
         "monday": [
           "09:00",
-          "16:00"
+          "09:30"
         ],
         "tuesday": [
           "09:00",
           "16:00"
+        ],
+        "wednesday": [
+          "09:00",
+          "17:00"
         ],
         "thursday": [
           "09:00",
@@ -233,6 +237,14 @@
         "friday": [
           "09:00",
           "14:00"
+        ],
+        "saturday": [
+          "09:00",
+          "17:00"
+        ],
+        "sunday": [
+          "09:00",
+          "17:00"
         ]
       },
       "id": 4
@@ -425,13 +437,13 @@
   ],
   "appointments": [
     {
-      "id": 1,
       "patientId": 1,
       "doctorId": 1,
       "serviceId": 2,
       "date": "2026-07-12T10:00:00",
-      "status": "confirmed",
-      "comment": "Плановая чистка"
+      "comment": "Плановая чистка",
+      "status": "created",
+      "id": 1
     },
     {
       "id": 2,
@@ -468,6 +480,15 @@
       "comment": "",
       "status": "confirmed",
       "id": 5
+    },
+    {
+      "patientId": 15,
+      "doctorId": 4,
+      "serviceId": 3,
+      "date": "2026-08-12T17:52",
+      "comment": "",
+      "status": "created",
+      "id": 6
     }
   ],
   "payments": [

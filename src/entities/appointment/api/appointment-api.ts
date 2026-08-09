@@ -1,5 +1,7 @@
 import { api } from "@/shared/api";
 import { API_ENDPOINTS } from "@/shared/config/api-endpoints";
+import { SortOrder } from "@/shared/types";
+import { PaginatedResponse } from "@/shared/types/common";
 import type {
   Appointment,
   AppointmentListItem,
@@ -7,11 +9,35 @@ import type {
   UpdateAppointmentPayload,
 } from "../types";
 
-export async function getAppointments(): Promise<AppointmentListItem[]> {
-  const { data } = await api.get<AppointmentListItem[]>(
+interface GetAppointmentsParams {
+  patientId?: number;
+  sort?: string;
+  order?: SortOrder;
+  page?: number;
+  limit?: number;
+}
+
+export async function getAppointments(
+  params?: GetAppointmentsParams,
+): Promise<PaginatedResponse<AppointmentListItem>> {
+  const response = await api.get<AppointmentListItem[]>(
     `${API_ENDPOINTS.appointments}?_expand=patient&_expand=doctor`,
+    {
+      params: {
+        patientId: params?.patientId,
+        _sort: params?.sort,
+        _order: params?.order,
+        _page: params?.page,
+        _limit: params?.limit,
+      },
+    },
   );
-  return data;
+
+  const total = Number(
+    response.headers["x-total-count"] ?? response.data.length,
+  );
+
+  return { data: response.data, total };
 }
 
 export async function createAppointment(payload: CreateAppointmentPayload) {

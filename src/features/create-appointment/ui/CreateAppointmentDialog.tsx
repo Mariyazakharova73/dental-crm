@@ -12,7 +12,13 @@ import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import { CreateAppointmentForm } from "./CreateAppointmentForm";
 
-export function CreateAppointmentDialog() {
+interface CreateAppointmentDialogProps {
+  patientId?: number;
+}
+
+export function CreateAppointmentDialog({
+  patientId,
+}: CreateAppointmentDialogProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -29,6 +35,7 @@ export function CreateAppointmentDialog() {
         </DialogHeader>
         {open && (
           <CreateAppointmentForm
+            patientId={patientId}
             onSuccess={() => setOpen(false)}
             onCancel={() => setOpen(false)}
           />

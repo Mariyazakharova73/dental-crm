@@ -2,6 +2,8 @@
 
 import {
   DoctorForm,
+  toDoctorSchedule,
+  toDoctorScheduleFormValue,
   useUpdateDoctor,
   type Doctor,
   type DoctorFormValues,
@@ -25,7 +27,12 @@ export function EditDoctorForm({
     mutate(
       {
         id: doctor.id,
-        payload: { ...values, schedule: doctor.schedule },
+        payload: {
+          name: values.name,
+          specialization: values.specialization,
+          experience: values.experience,
+          schedule: toDoctorSchedule(values.schedule),
+        },
       },
       {
         onSuccess: () => {
@@ -43,6 +50,7 @@ export function EditDoctorForm({
         name: doctor.name,
         specialization: doctor.specialization,
         experience: doctor.experience,
+        schedule: toDoctorScheduleFormValue(doctor.schedule),
       }}
       onSubmit={onSubmit}
       onCancel={onCancel}

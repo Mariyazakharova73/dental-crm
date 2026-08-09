@@ -2,11 +2,11 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { getAppointments } from "../api/appointment-api";
-import { appointmentKeys } from "./query-keys";
+import { appointmentKeys, type AppointmentListParams } from "./query-keys";
 
-export function useAppointments() {
+export function useAppointments(params?: AppointmentListParams) {
   return useQuery({
-    queryKey: appointmentKeys.lists(),
-    queryFn: () => getAppointments(),
+    queryKey: appointmentKeys.lists(params),
+    queryFn: () => getAppointments(params),
   });
 }

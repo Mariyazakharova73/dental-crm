@@ -27,6 +27,7 @@ interface AppointmentFormProps {
   onSubmit: (values: AppointmentFormValues) => void;
   onCancel?: () => void;
   isPending?: boolean;
+  lockPatient?: boolean;
   errorMessage?: Nullable<string>;
 }
 
@@ -35,6 +36,7 @@ export function AppointmentForm({
   onSubmit,
   onCancel,
   isPending = false,
+  lockPatient = false,
   errorMessage,
 }: AppointmentFormProps) {
   const { data: patientsData } = usePatients({ limit: 100 });
@@ -67,6 +69,7 @@ export function AppointmentForm({
               <Select
                 value={field.value > 0 ? String(field.value) : ""}
                 onValueChange={(value) => field.onChange(Number(value))}
+                disabled={lockPatient}
               >
                 <SelectTrigger
                   className="w-full"

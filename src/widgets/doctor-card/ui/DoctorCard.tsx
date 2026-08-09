@@ -1,4 +1,9 @@
-import type { Doctor, DoctorSchedule, Weekday } from "@/entities/doctor";
+import {
+  WEEKDAY_LABELS,
+  WEEKDAY_ORDER,
+  type Doctor,
+  type DoctorSchedule,
+} from "@/entities/doctor";
 import { EntityCard } from "@/shared/ui/entity-card";
 import { Separator } from "@/shared/ui/separator";
 import { BriefcaseIcon, ClockIcon, StethoscopeIcon } from "lucide-react";
@@ -8,26 +13,6 @@ interface DoctorCardProps {
   doctor: Doctor;
   actions?: ReactNode;
 }
-
-const WEEKDAY_LABELS: Record<Weekday, string> = {
-  monday: "Пн",
-  tuesday: "Вт",
-  wednesday: "Ср",
-  thursday: "Чт",
-  friday: "Пт",
-  saturday: "Сб",
-  sunday: "Вс",
-};
-
-const WEEKDAY_ORDER: Weekday[] = [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday",
-];
 
 function formatExperience(years: number) {
   const mod10 = years % 10;

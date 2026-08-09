@@ -5,8 +5,17 @@ export {
   getDoctors,
   updateDoctor,
 } from "./api/doctor-api";
+export {
+  toDoctorSchedule,
+  toDoctorScheduleFormValue,
+} from "./lib/doctor-schedule";
+export type {
+  DayScheduleFormValue,
+  DoctorScheduleFormValue,
+} from "./lib/doctor-schedule";
 export { DOCTOR_SORT_FIELD } from "./lib/doctor-sort-field";
 export type { DoctorSortField } from "./lib/doctor-sort-field";
+export { WEEKDAY_LABELS, WEEKDAY_ORDER } from "./lib/weekdays";
 export {
   emptyDoctorFormValues,
   doctorFormSchema,
