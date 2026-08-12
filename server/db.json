@@ -484,7 +484,7 @@
     {
       "patientId": 15,
       "doctorId": 4,
-      "serviceId": 3,
+      "serviceId": 2,
       "date": "2026-08-12T17:52",
       "comment": "",
       "status": "created",
