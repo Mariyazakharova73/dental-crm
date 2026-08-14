@@ -30,3 +30,4 @@ export { AppointmentForm } from "./ui/appointment-form";
 export { APPOINTMENT_SORT_FIELD } from "./lib/appointment-sort-field";
 export type { AppointmentSortField } from "./lib/appointment-sort-field";
 export type { AppointmentListParams } from "./model/query-keys";
+export { toCalendarEvent } from "./lib/to-calendar-event";

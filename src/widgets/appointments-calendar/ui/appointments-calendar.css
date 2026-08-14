@@ -1,0 +1,79 @@
+/* FullCalendar подстраивается под светлую/тёмную тему приложения */
+.appointments-calendar {
+  --fc-border-color: var(--border);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: var(--muted);
+  --fc-neutral-text-color: var(--muted-foreground);
+  --fc-list-event-hover-bg-color: var(--accent);
+  --fc-today-bg-color: color-mix(in oklch, var(--primary) 14%, transparent);
+  --fc-page-text-color: var(--foreground);
+  --fc-button-text-color: var(--primary-foreground);
+  --fc-button-bg-color: var(--primary);
+  --fc-button-border-color: var(--primary);
+  --fc-button-hover-bg-color: color-mix(in oklch, var(--primary) 85%, black);
+  --fc-button-hover-border-color: color-mix(in oklch, var(--primary) 85%, black);
+  --fc-button-active-bg-color: color-mix(in oklch, var(--primary) 75%, black);
+  --fc-button-active-border-color: color-mix(in oklch, var(--primary) 75%, black);
+  --fc-more-link-bg-color: var(--muted);
+  --fc-more-link-text-color: var(--foreground);
+}
+
+.appointments-calendar .fc {
+  color: var(--foreground);
+}
+
+.appointments-calendar .fc-theme-standard td,
+.appointments-calendar .fc-theme-standard th,
+.appointments-calendar .fc-theme-standard .fc-scrollgrid {
+  border-color: var(--border);
+}
+
+.appointments-calendar .fc-col-header-cell-cushion,
+.appointments-calendar .fc-daygrid-day-number,
+.appointments-calendar .fc-timegrid-slot-label-cushion,
+.appointments-calendar .fc-toolbar-title {
+  color: var(--foreground);
+}
+
+/* Окно «+ещё N» */
+.appointments-calendar .fc-popover {
+  background-color: var(--popover) !important;
+  border-color: var(--border) !important;
+  color: var(--popover-foreground);
+  box-shadow: 0 8px 24px color-mix(in oklch, black 35%, transparent);
+}
+
+.appointments-calendar .fc-popover-header {
+  background-color: var(--muted) !important;
+  color: var(--popover-foreground);
+}
+
+.appointments-calendar .fc-popover-close {
+  color: var(--muted-foreground);
+}
+
+.appointments-calendar .fc-popover-body {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}
+
+.appointments-calendar .fc-daygrid-event-dot {
+  border-color: currentColor;
+}
+
+/* fallback, если popover окажется вне обёртки */
+.fc-more-popover.fc-popover {
+  background-color: var(--popover) !important;
+  border-color: var(--border) !important;
+  color: var(--popover-foreground);
+}
+
+.fc-more-popover .fc-popover-header {
+  background-color: var(--muted) !important;
+  color: var(--popover-foreground);
+}
+
+.fc-more-popover .fc-popover-body {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}

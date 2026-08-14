@@ -1,12 +1,8 @@
 "use client";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
 import { AppointmentTable } from "@/widgets/appointment-table";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/shared/ui/tabs";
+import { AppointmentsCalendar } from "@/widgets/appointments-calendar";
 import { CalendarDaysIcon, TableIcon } from "lucide-react";
 
 export function AppointmentsPage() {
@@ -31,12 +27,7 @@ export function AppointmentsPage() {
         </TabsContent>
 
         <TabsContent value="calendar">
-          <div className="flex flex-col items-start gap-2 rounded-xl border border-dashed p-8">
-            <p className="font-medium">Календарь записей</p>
-            <p className="text-muted-foreground text-sm">
-              Здесь будет календарь приёмов. Пока используйте вкладку «Таблица».
-            </p>
-          </div>
+          <AppointmentsCalendar />
         </TabsContent>
       </Tabs>
     </main>

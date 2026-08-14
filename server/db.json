@@ -498,6 +498,51 @@
       "comment": "",
       "status": "created",
       "id": 7
+    },
+    {
+      "id": 8,
+      "patientId": 1,
+      "doctorId": 1,
+      "serviceId": 2,
+      "date": "2026-08-17T09:00:00",
+      "status": "confirmed",
+      "comment": "Чистка перед осмотром"
+    },
+    {
+      "id": 9,
+      "patientId": 2,
+      "doctorId": 2,
+      "serviceId": 1,
+      "date": "2026-08-17T10:00:00",
+      "status": "created",
+      "comment": ""
+    },
+    {
+      "id": 10,
+      "patientId": 3,
+      "doctorId": 3,
+      "serviceId": 3,
+      "date": "2026-08-17T11:30:00",
+      "status": "confirmed",
+      "comment": "Консультация по имплантации"
+    },
+    {
+      "patientId": 4,
+      "doctorId": 4,
+      "serviceId": 1,
+      "date": "2026-08-17T14:00:00",
+      "comment": "",
+      "status": "completed",
+      "id": 11
+    },
+    {
+      "patientId": 5,
+      "doctorId": 5,
+      "serviceId": 4,
+      "date": "2026-08-17T16:00:00",
+      "comment": "Установка брекетов",
+      "status": "cancelled",
+      "id": 12
     }
   ],
   "payments": [
