@@ -10,24 +10,24 @@ export function AppointmentsPage() {
     <main className="flex flex-1 flex-col gap-4 p-6">
       <h1 className="text-2xl font-semibold">Записи</h1>
 
-      <Tabs defaultValue="table" className="gap-4">
+      <Tabs defaultValue="calendar" className="gap-4">
         <TabsList>
-          <TabsTrigger value="table">
-            <TableIcon />
-            Таблица
-          </TabsTrigger>
           <TabsTrigger value="calendar">
             <CalendarDaysIcon />
             Календарь
           </TabsTrigger>
+          <TabsTrigger value="table">
+            <TableIcon />
+            Таблица
+          </TabsTrigger>
         </TabsList>
-
-        <TabsContent value="table" keepMounted>
-          <AppointmentTable />
-        </TabsContent>
 
         <TabsContent value="calendar">
           <AppointmentsCalendar />
+        </TabsContent>
+
+        <TabsContent value="table" keepMounted>
+          <AppointmentTable />
         </TabsContent>
       </Tabs>
     </main>
