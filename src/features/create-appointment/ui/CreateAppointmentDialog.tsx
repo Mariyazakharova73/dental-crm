@@ -14,10 +14,12 @@ import { CreateAppointmentForm } from "./CreateAppointmentForm";
 
 interface CreateAppointmentDialogProps {
   patientId?: number;
+  doctorId?: number;
 }
 
 export function CreateAppointmentDialog({
   patientId,
+  doctorId,
 }: CreateAppointmentDialogProps) {
   const [open, setOpen] = useState(false);
 
@@ -36,6 +38,7 @@ export function CreateAppointmentDialog({
         {open && (
           <CreateAppointmentForm
             patientId={patientId}
+            doctorId={doctorId}
             onSuccess={() => setOpen(false)}
             onCancel={() => setOpen(false)}
           />

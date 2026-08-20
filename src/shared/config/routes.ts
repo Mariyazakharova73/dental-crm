@@ -3,10 +3,14 @@ export const routes = {
   patients: "/patients",
   patientsCreate: "/patients/create",
   patient: (id: number | string) => `/patients/${id}`,
+  patientAppointments: (id: number | string) => `/patients/${id}/appointments`,
+  patientPayments: (id: number | string) => `/patients/${id}/payments`,
+  patientDocuments: (id: number | string) => `/patients/${id}/documents`,
 
   doctors: "/doctors",
   doctorsCreate: "/doctors/create",
   doctor: (id: number | string) => `/doctors/${id}`,
+  doctorAppointments: (id: number | string) => `/doctors/${id}/appointments`,
 
   appointments: "/appointments",
   appointmentsCreate: "/appointments/create",

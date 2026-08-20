@@ -4,6 +4,7 @@ import {
   formatAppointmentDate,
   type AppointmentListItem,
 } from "@/entities/appointment";
+import { getFullName } from "@/entities/patient";
 import { ChangeAppointmentStatus } from "@/features/change-appointment-status";
 import { DeleteAppointmentDialog } from "@/features/delete-appointment";
 import { EditAppointmentDialog } from "@/features/edit-appointment";
@@ -11,22 +12,32 @@ import { Button } from "@/shared/ui/button";
 import { PencilIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
 
-interface PatientAppointmentItemProps {
+type EntityAppointmentItemProps = {
   appointment: AppointmentListItem;
-}
+  counterparty: "doctor" | "patient";
+};
 
-export function PatientAppointmentItem({
+export function EntityAppointmentItem({
   appointment,
-}: PatientAppointmentItemProps) {
+  counterparty,
+}: EntityAppointmentItemProps) {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const doctorLabel = appointment.doctor?.name ?? `#${appointment.doctorId}`;
+
+  const counterpartyLabel =
+    counterparty === "doctor"
+      ? (appointment.doctor?.name ?? `#${appointment.doctorId}`)
+      : appointment.patient
+        ? getFullName(appointment.patient)
+        : `#${appointment.patientId}`;
 
   return (
     <li className="flex flex-col gap-3 border-b py-3 last:border-b-0 last:pb-0 first:pt-0 sm:flex-row sm:items-center sm:justify-between">
       <div className="min-w-0 space-y-1">
         <p className="font-medium">{formatAppointmentDate(appointment.date)}</p>
-        <p className="text-muted-foreground truncate text-sm">{doctorLabel}</p>
+        <p className="text-muted-foreground truncate text-sm">
+          {counterpartyLabel}
+        </p>
       </div>
 
       <div className="flex items-center gap-2 self-end sm:self-auto">

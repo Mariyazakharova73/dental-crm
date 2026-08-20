@@ -1,2 +1,2 @@
-export { PatientCard } from "./ui/PatientCard";
-export { PatientCardSkeleton } from "./ui/PatientCardSkeleton";
+export { PatientContactInfo } from "./ui/PatientContactInfo";
+export { PatientContactDetails } from "./ui/PatientContactDetails";

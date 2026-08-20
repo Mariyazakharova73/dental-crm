@@ -11,12 +11,14 @@ import { toast } from "sonner";
 
 interface CreateAppointmentFormProps {
   patientId?: number;
+  doctorId?: number;
   onSuccess?: () => void;
   onCancel?: () => void;
 }
 
 export function CreateAppointmentForm({
   patientId,
+  doctorId,
   onSuccess,
   onCancel,
 }: CreateAppointmentFormProps) {
@@ -40,8 +42,10 @@ export function CreateAppointmentForm({
       defaultValues={{
         ...emptyAppointmentFormValues,
         ...(patientId ? { patientId } : {}),
+        ...(doctorId ? { doctorId } : {}),
       }}
       lockPatient={Boolean(patientId)}
+      lockDoctor={Boolean(doctorId)}
       onSubmit={onSubmit}
       onCancel={onCancel}
       isPending={isPending}

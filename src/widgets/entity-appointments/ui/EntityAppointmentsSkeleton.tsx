@@ -1,6 +1,6 @@
 import { Skeleton } from "@/shared/ui/skeleton";
 
-export function PatientAppointmentsSkeleton() {
+export function EntityAppointmentsSkeleton() {
   return (
     <ul className="flex flex-col gap-3">
       {Array.from({ length: 3 }, (_, index) => (

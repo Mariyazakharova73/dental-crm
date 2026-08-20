@@ -11,6 +11,7 @@ import type {
 
 interface GetAppointmentsParams {
   patientId?: number;
+  doctorId?: number;
   sort?: string;
   order?: SortOrder;
   page?: number;
@@ -25,6 +26,7 @@ export async function getAppointments(
     {
       params: {
         patientId: params?.patientId,
+        doctorId: params?.doctorId,
         _sort: params?.sort,
         _order: params?.order,
         _page: params?.page,

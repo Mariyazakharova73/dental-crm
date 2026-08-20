@@ -2,8 +2,6 @@
 
 import {
   DoctorForm,
-  toDoctorSchedule,
-  toDoctorScheduleFormValue,
   useUpdateDoctor,
   type Doctor,
   type DoctorFormValues,
@@ -31,7 +29,6 @@ export function EditDoctorForm({
           name: values.name,
           specialization: values.specialization,
           experience: values.experience,
-          schedule: toDoctorSchedule(values.schedule),
         },
       },
       {
@@ -50,7 +47,6 @@ export function EditDoctorForm({
         name: doctor.name,
         specialization: doctor.specialization,
         experience: doctor.experience,
-        schedule: toDoctorScheduleFormValue(doctor.schedule),
       }}
       onSubmit={onSubmit}
       onCancel={onCancel}

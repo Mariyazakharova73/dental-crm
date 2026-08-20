@@ -27,6 +27,8 @@ const routeLabels: Record<string, string> = {
   finance: "Финансы",
   tasks: "Задачи",
   create: "Создание",
+  payments: "Финансы",
+  documents: "Документы",
 };
 
 export const navigationItems: NavItem[] = [
@@ -59,7 +61,6 @@ export const navigationItems: NavItem[] = [
     href: routes.services,
     icon: BriefcaseMedical,
     keywords: ["service", "прайс"],
-    disabled: true,
   },
   {
     title: routeLabels.finance,

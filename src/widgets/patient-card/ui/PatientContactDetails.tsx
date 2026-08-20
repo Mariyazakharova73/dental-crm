@@ -1,21 +1,14 @@
-import { formatBirthDate, getFullName, type Patient } from "@/entities/patient";
-import { EntityCard } from "@/shared/ui/entity-card";
+import { formatBirthDate, type Patient } from "@/entities/patient";
 import { Separator } from "@/shared/ui/separator";
 import { CalendarIcon, MailIcon, PhoneIcon } from "lucide-react";
-import type { ReactNode } from "react";
 
-interface PatientCardProps {
+interface PatientContactDetailsProps {
   patient: Patient;
-  actions?: ReactNode;
 }
 
-export function PatientCard({ patient, actions }: PatientCardProps) {
+export function PatientContactDetails({ patient }: PatientContactDetailsProps) {
   return (
-    <EntityCard
-      title={getFullName(patient)}
-      description="Карточка пациента"
-      actions={actions}
-    >
+    <>
       <dl className="grid gap-4 sm:grid-cols-2">
         <div className="flex gap-3">
           <PhoneIcon className="text-muted-foreground mt-0.5 size-4 shrink-0" />
@@ -52,6 +45,6 @@ export function PatientCard({ patient, actions }: PatientCardProps) {
           {patient.comment.trim() || "Нет комментария"}
         </p>
       </div>
-    </EntityCard>
+    </>
   );
 }

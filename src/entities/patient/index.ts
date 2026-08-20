@@ -1,6 +1,6 @@
 export { getPatientById, getPatients, createPatient } from "./api/patient-api";
 export { filterPatients } from "./lib/filter-patients";
-export { formatBirthDate, getFullName } from "./lib/getPatientData";
+export { formatBirthDate, getFullName, getPatientAge, getPatientSubtitle } from "./lib/getPatientData";
 export { PATIENT_SORT_FIELD } from "./lib/patient-sort-field";
 export type { PatientSortField } from "./lib/patient-sort-field";
 export { sortPatients } from "./lib/sort-patients";

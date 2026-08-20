@@ -2,6 +2,7 @@ import { SortOrder } from '@/shared/types';
 
 export interface AppointmentListParams {
   patientId?: number;
+  doctorId?: number;
   sort?: string;
   order?: SortOrder;
   page?: number;

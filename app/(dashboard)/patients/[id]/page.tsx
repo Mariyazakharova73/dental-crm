@@ -1,1 +1,1 @@
-export { PatientDetailPage as default } from "@/pages/patient-detail";
+export { PatientOverviewPage as default } from "@/pages/patient-detail";

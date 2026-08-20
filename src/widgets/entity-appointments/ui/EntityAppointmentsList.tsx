@@ -10,16 +10,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/card";
-import { PatientAppointmentItem } from "./PatientAppointmentItem";
-import { PatientAppointmentsSkeleton } from "./PatientAppointmentsSkeleton";
+import { EntityAppointmentItem } from "./EntityAppointmentItem";
+import { EntityAppointmentsSkeleton } from "./EntityAppointmentsSkeleton";
 
-interface PatientAppointmentsProps {
-  patientId: number;
-}
+type EntityAppointmentsListProps = {
+  description: string;
+  counterparty: "doctor" | "patient";
+} & (
+  | { patientId: number; doctorId?: never }
+  | { doctorId: number; patientId?: never }
+);
 
-export function PatientAppointments({ patientId }: PatientAppointmentsProps) {
+export function EntityAppointmentsList({
+  description,
+  counterparty,
+  patientId,
+  doctorId,
+}: EntityAppointmentsListProps) {
   const { data, isLoading, isError, error } = useAppointments({
     patientId,
+    doctorId,
     sort: "date",
     order: SORT_ORDER.DESC,
   });
@@ -32,14 +42,14 @@ export function PatientAppointments({ patientId }: PatientAppointmentsProps) {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-1">
             <CardTitle className="text-xl">Записи</CardTitle>
-            <CardDescription>Приёмы этого пациента</CardDescription>
+            <CardDescription>{description}</CardDescription>
           </div>
-          <CreateAppointmentDialog patientId={patientId} />
+          <CreateAppointmentDialog patientId={patientId} doctorId={doctorId} />
         </div>
       </CardHeader>
 
       <CardContent className="pt-4">
-        {isLoading && <PatientAppointmentsSkeleton />}
+        {isLoading && <EntityAppointmentsSkeleton />}
 
         {isError && (
           <p className="text-destructive text-sm">
@@ -54,9 +64,10 @@ export function PatientAppointments({ patientId }: PatientAppointmentsProps) {
         {!isLoading && !isError && appointments.length > 0 && (
           <ul>
             {appointments.map((appointment) => (
-              <PatientAppointmentItem
+              <EntityAppointmentItem
                 key={appointment.id}
                 appointment={appointment}
+                counterparty={counterparty}
               />
             ))}
           </ul>
