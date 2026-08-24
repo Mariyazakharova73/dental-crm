@@ -27,7 +27,12 @@ export function EntityDetailLayout({
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 p-6">
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="sm" render={<Link href={listHref} />}>
+        <Button
+          variant="ghost"
+          size="sm"
+          nativeButton={false}
+          render={<Link href={listHref} />}
+        >
           <ArrowLeftIcon /> К списку
         </Button>
       </div>
@@ -38,7 +43,7 @@ export function EntityDetailLayout({
         <div className="flex flex-col items-start gap-3 rounded-xl border border-dashed p-8">
           <h1 className="text-xl font-semibold">{notFoundTitle}</h1>
           <p className="text-muted-foreground text-sm">{notFoundDescription}</p>
-          <Button render={<Link href={listHref} />}>{listLabel}</Button>
+          <Button nativeButton={false} render={<Link href={listHref} />}>{listLabel}</Button>
         </div>
       )}
 

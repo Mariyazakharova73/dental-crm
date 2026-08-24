@@ -1,4 +1,5 @@
-import { formatBirthDate, type Patient } from "@/entities/patient";
+import { type Patient } from "@/entities/patient";
+import { formatDate } from "@/shared/lib/date/format-date";
 import { Separator } from "@/shared/ui/separator";
 import { CalendarIcon, MailIcon, PhoneIcon } from "lucide-react";
 
@@ -30,9 +31,7 @@ export function PatientContactDetails({ patient }: PatientContactDetailsProps) {
           <CalendarIcon className="text-muted-foreground mt-0.5 size-4 shrink-0" />
           <div className="min-w-0">
             <dt className="text-muted-foreground text-xs">Дата рождения</dt>
-            <dd className="font-medium">
-              {formatBirthDate(patient.birthDate)}
-            </dd>
+            <dd className="font-medium">{formatDate(patient.birthDate)}</dd>
           </div>
         </div>
       </dl>

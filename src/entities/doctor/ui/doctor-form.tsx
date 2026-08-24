@@ -40,7 +40,7 @@ export function DoctorForm({
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <FieldForm label="ФИО" error={errors.name?.message}>
         <Input
-          placeholder="Смирнов Алексей Викторович"
+          placeholder="ФИО"
           aria-invalid={!!errors.name}
           {...register("name")}
         />
@@ -48,7 +48,7 @@ export function DoctorForm({
 
       <FieldForm label="Специализация" error={errors.specialization?.message}>
         <Input
-          placeholder="Терапевт"
+          placeholder="Специализация"
           aria-invalid={!!errors.specialization}
           {...register("specialization")}
         />
@@ -60,7 +60,7 @@ export function DoctorForm({
           inputMode="numeric"
           min={0}
           max={70}
-          placeholder="10"
+          placeholder="Стаж (лет)"
           aria-invalid={!!errors.experience}
           {...register("experience", { valueAsNumber: true })}
         />

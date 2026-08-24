@@ -1,10 +1,7 @@
 "use client";
 
-import {
-  formatAppointmentDate,
-  useDeleteAppointment,
-  type Appointment,
-} from "@/entities/appointment";
+import { useDeleteAppointment, type Appointment } from "@/entities/appointment";
+import { formatDateTime } from "@/shared/lib/date/format-date";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -55,8 +52,8 @@ export function DeleteAppointmentDialog({
         <AlertDialogHeader>
           <AlertDialogTitle>Удалить запись?</AlertDialogTitle>
           <AlertDialogDescription>
-            Запись на {formatAppointmentDate(appointment.date)} будет удалена
-            без возможности восстановления.
+            Запись на {formatDateTime(appointment.date)} будет удалена без
+            возможности восстановления.
           </AlertDialogDescription>
         </AlertDialogHeader>
 

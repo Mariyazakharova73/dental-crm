@@ -77,7 +77,7 @@ export function AppointmentForm({
                   className="w-full"
                   aria-invalid={!!errors.patientId}
                 >
-                  <SelectValue placeholder="Выберите пациента">
+                  <SelectValue placeholder="Пациент">
                     {selected ? getFullName(selected) : null}
                   </SelectValue>
                 </SelectTrigger>
@@ -110,7 +110,7 @@ export function AppointmentForm({
                   className="w-full"
                   aria-invalid={!!errors.doctorId}
                 >
-                  <SelectValue placeholder="Выберите врача">
+                  <SelectValue placeholder="Врач">
                     {selected?.name ?? null}
                   </SelectValue>
                 </SelectTrigger>
@@ -142,7 +142,7 @@ export function AppointmentForm({
                   className="w-full"
                   aria-invalid={!!errors.serviceId}
                 >
-                  <SelectValue placeholder="Выберите услугу">
+                  <SelectValue placeholder="Услуга">
                     {selected?.name ?? null}
                   </SelectValue>
                 </SelectTrigger>
@@ -169,7 +169,7 @@ export function AppointmentForm({
 
       <FieldForm label="Комментарий" error={errors.comment?.message}>
         <Textarea
-          placeholder="Пожелания, особенности..."
+          placeholder="Комментарий"
           rows={3}
           aria-invalid={!!errors.comment}
           {...register("comment")}

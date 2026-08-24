@@ -42,14 +42,14 @@ export function PatientForm({
       <div className="grid gap-4 sm:grid-cols-2">
         <FieldForm label="Фамилия" error={errors.lastName?.message}>
           <Input
-            placeholder="Иванова"
+            placeholder="Фамилия"
             aria-invalid={!!errors.lastName}
             {...register("lastName")}
           />
         </FieldForm>
         <FieldForm label="Имя" error={errors.firstName?.message}>
           <Input
-            placeholder="Анна"
+            placeholder="Имя"
             aria-invalid={!!errors.firstName}
             {...register("firstName")}
           />
@@ -61,7 +61,7 @@ export function PatientForm({
           type="tel"
           inputMode="tel"
           maxLength={12}
-          placeholder="+79991234567"
+          placeholder="Телефон"
           aria-invalid={!!errors.phone}
           {...register("phone")}
         />
@@ -79,7 +79,7 @@ export function PatientForm({
       <FieldForm label="Email" error={errors.email?.message}>
         <Input
           type="email"
-          placeholder="anna@mail.ru"
+          placeholder="Email"
           aria-invalid={!!errors.email}
           {...register("email")}
         />
@@ -87,7 +87,7 @@ export function PatientForm({
 
       <FieldForm label="Комментарий" error={errors.comment?.message}>
         <Textarea
-          placeholder="Аллергии, особенности..."
+          placeholder="Комментарий"
           rows={3}
           aria-invalid={!!errors.comment}
           {...register("comment")}

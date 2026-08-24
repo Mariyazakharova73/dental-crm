@@ -1,9 +1,7 @@
-import {
-  formatAppointmentDate,
-  type AppointmentListItem,
-} from "@/entities/appointment";
+import { type AppointmentListItem } from "@/entities/appointment";
 import { getFullName } from "@/entities/patient";
 import { ChangeAppointmentStatus } from "@/features/change-appointment-status";
+import { formatDateTime } from "@/shared/lib/date/format-date";
 import { TableCell, TableRow } from "@/shared/ui/table";
 import { AppointmentRowActions } from "./AppointmentRowActions";
 
@@ -21,7 +19,7 @@ export function AppointmentTableRow({ appointment }: AppointmentTableRowProps) {
   return (
     <TableRow>
       <TableCell className="font-medium">
-        {formatAppointmentDate(appointment.date)}
+        {formatDateTime(appointment.date)}
       </TableCell>
       <TableCell className="hidden sm:table-cell">{patientLabel}</TableCell>
       <TableCell className="hidden md:table-cell">{doctorLabel}</TableCell>

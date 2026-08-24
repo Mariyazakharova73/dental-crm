@@ -1,9 +1,6 @@
-import {
-  formatBirthDate,
-  getFullName,
-  type Patient,
-} from "@/entities/patient";
+import { getFullName, type Patient } from "@/entities/patient";
 import { routes } from "@/shared/config/routes";
+import { formatDate } from "@/shared/lib/date/format-date";
 import { TableCell, TableRow } from "@/shared/ui/table";
 import Link from "next/link";
 import { PatientRowActions } from "./PatientRowActions";
@@ -34,7 +31,7 @@ export function PatientTableRow({ patient }: PatientTableRowProps) {
       <TableCell className="hidden lg:table-cell">{patient.email}</TableCell>
 
       <TableCell className="hidden sm:table-cell">
-        {formatBirthDate(patient.birthDate)}
+        {formatDate(patient.birthDate)}
       </TableCell>
 
       <TableCell className="text-right">

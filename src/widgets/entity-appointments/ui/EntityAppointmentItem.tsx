@@ -1,13 +1,11 @@
 "use client";
 
-import {
-  formatAppointmentDate,
-  type AppointmentListItem,
-} from "@/entities/appointment";
+import { type AppointmentListItem } from "@/entities/appointment";
 import { getFullName } from "@/entities/patient";
 import { ChangeAppointmentStatus } from "@/features/change-appointment-status";
 import { DeleteAppointmentDialog } from "@/features/delete-appointment";
 import { EditAppointmentDialog } from "@/features/edit-appointment";
+import { formatDateTime } from "@/shared/lib/date/format-date";
 import { Button } from "@/shared/ui/button";
 import { PencilIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
@@ -32,9 +30,9 @@ export function EntityAppointmentItem({
         : `#${appointment.patientId}`;
 
   return (
-    <li className="flex flex-col gap-3 border-b py-3 last:border-b-0 last:pb-0 first:pt-0 sm:flex-row sm:items-center sm:justify-between">
+    <li className="flex flex-col gap-3 border-b py-3 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
       <div className="min-w-0 space-y-1">
-        <p className="font-medium">{formatAppointmentDate(appointment.date)}</p>
+        <p className="font-medium">{formatDateTime(appointment.date)}</p>
         <p className="text-muted-foreground truncate text-sm">
           {counterpartyLabel}
         </p>
