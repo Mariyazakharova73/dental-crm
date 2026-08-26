@@ -56,7 +56,7 @@ export function PaymentForm({
           step={1}
           placeholder="3500"
           aria-invalid={!!errors.amount}
-          {...register("amount")}
+          {...register("amount"), { valueAsNumber: true }}
         />
       </FieldForm>
 
