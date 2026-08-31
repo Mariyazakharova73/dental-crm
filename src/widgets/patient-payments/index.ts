@@ -1,0 +1,1 @@
+export { PatientPayments } from "./ui/PatientPayments";
