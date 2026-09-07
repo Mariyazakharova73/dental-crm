@@ -1,1 +1,1 @@
-export { PatientPayments } from "./ui/PatientPayments";
+export { PatientPaymentsList } from "./ui/PatientPaymentsList";
