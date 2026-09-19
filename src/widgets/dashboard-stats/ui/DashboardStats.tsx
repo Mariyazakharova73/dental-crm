@@ -15,7 +15,12 @@ import {
 import { DashboardStatsSkeleton } from "./DashboardStatsSkeleton";
 
 function getTodayDateString() {
-  return new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const localNow = new Date(
+    now.getTime() - now.getTimezoneOffset() * 60 * 1000,
+  );
+
+  return localNow.toISOString().slice(0, 10);
 }
 
 export function DashboardStats() {
@@ -40,11 +45,23 @@ export function DashboardStats() {
   const appointments = appointmentsQuery.data?.data ?? [];
   const payments = paymentsQuery.data ?? [];
 
-  const todayCount = appointments.filter(
+  const todayAppointments = appointments.filter(
     (appointment) =>
       appointment.date.slice(0, 10) === today &&
       appointment.status !== APPOINTMENT_STATUS.CANCELLED,
+  );
+
+  const confirmedTodayCount = todayAppointments.filter(
+    (appointment) => appointment.status === APPOINTMENT_STATUS.CONFIRMED,
   ).length;
+
+  const awaitingConfirmationCount = appointments.filter(
+    (appointment) =>
+      appointment.date.slice(0, 10) >= today &&
+      appointment.status === APPOINTMENT_STATUS.CREATED,
+  ).length;
+
+  const paymentSummary = calcPaymentSummary(payments);
 
   const stats = [
     {
@@ -57,11 +74,19 @@ export function DashboardStats() {
     },
     {
       label: "Записи сегодня",
-      value: String(todayCount),
+      value: String(todayAppointments.length),
     },
     {
-      label: "Оплачено",
-      value: formatServicePrice(calcPaymentSummary(payments).paid),
+      label: "Подтверждено сегодня",
+      value: String(confirmedTodayCount),
+    },
+    {
+      label: "Ожидают подтверждения",
+      value: String(awaitingConfirmationCount),
+    },
+    {
+      label: "Оплачено всего",
+      value: formatServicePrice(paymentSummary.paid),
     },
   ];
 
@@ -82,7 +107,7 @@ export function DashboardStats() {
         )}
 
         {!isLoading && !isError && (
-          <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="text-muted-foreground text-xs">{stat.label}</dt>
