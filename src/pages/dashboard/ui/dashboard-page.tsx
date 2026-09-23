@@ -1,6 +1,7 @@
 "use client";
 
 import { DashboardStats } from "@/widgets/dashboard-stats";
+import { DashboardUpcomingAppointments } from "@/widgets/dashboard-upcoming-appointments/ui/dashboard-upcoming-appointments";
 
 export function DashboardPage() {
   return (
@@ -10,6 +11,7 @@ export function DashboardPage() {
         <p className="text-muted-foreground text-sm">Сводка по клинике</p>
       </div>
       <DashboardStats />
+      <DashboardUpcomingAppointments />
     </main>
   );
 }
