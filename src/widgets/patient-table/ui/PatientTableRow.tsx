@@ -1,6 +1,7 @@
 import { getFullName, type Patient } from "@/entities/patient";
 import { routes } from "@/shared/config/routes";
 import { formatDate } from "@/shared/lib/date/format-date";
+import { CopyButton } from "@/shared/ui/copy-button";
 import { TableCell, TableRow } from "@/shared/ui/table";
 import Link from "next/link";
 import { PatientRowActions } from "./PatientRowActions";
@@ -26,9 +27,19 @@ export function PatientTableRow({ patient }: PatientTableRowProps) {
         )}
       </TableCell>
 
-      <TableCell className="hidden md:table-cell">{patient.phone}</TableCell>
+      <TableCell className="hidden md:table-cell">
+        <div className="flex items-center gap-1">
+          {patient.phone}
+          <CopyButton value={patient.phone} label="Скопировать телефон" />
+        </div>
+      </TableCell>
 
-      <TableCell className="hidden lg:table-cell">{patient.email}</TableCell>
+      <TableCell className="hidden lg:table-cell">
+        <div className="flex items-center gap-1">
+          {patient.email}
+          <CopyButton value={patient.email} label="Скопировать email" />
+        </div>
+      </TableCell>
 
       <TableCell className="hidden sm:table-cell">
         {formatDate(patient.birthDate)}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
+import { Toaster } from "@/shared/ui/sonner";
 
 import { QueryProvider, ThemeProvider } from "@/app/providers";
 import "@/app/styles/globals.css";

@@ -17,7 +17,7 @@ export function CreateDoctorDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <Button onClick={() => setOpen(true)}>
+      <Button className="h-10 px-4 shadow-sm" onClick={() => setOpen(true)}>
         <PlusIcon />
         Добавить врача
       </Button>

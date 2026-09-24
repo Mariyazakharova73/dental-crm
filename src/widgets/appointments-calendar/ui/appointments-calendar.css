@@ -35,17 +35,33 @@
   color: var(--foreground);
 }
 
+.appointments-calendar .fc-event-time {
+  margin-right: 0.35rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.appointments-calendar .fc-event-title {
+  font-weight: 600;
+}
+
 /* Окно «+ещё N» */
 .appointments-calendar .fc-popover {
+  min-width: 23rem;
+  border-radius: var(--radius) !important;
+  overflow: hidden;
   background-color: var(--popover) !important;
   border-color: var(--border) !important;
   color: var(--popover-foreground);
+  font-size: 0.95rem;
   box-shadow: 0 8px 24px color-mix(in oklch, black 35%, transparent);
 }
 
 .appointments-calendar .fc-popover-header {
   background-color: var(--muted) !important;
   color: var(--popover-foreground);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
 }
 
 .appointments-calendar .fc-popover-close {
@@ -55,6 +71,13 @@
 .appointments-calendar .fc-popover-body {
   background-color: var(--popover);
   color: var(--popover-foreground);
+  padding: 0.75rem 1rem;
+}
+
+.appointments-calendar .fc-popover .fc-daygrid-event {
+  margin-block: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .appointments-calendar .fc-daygrid-event-dot {

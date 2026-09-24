@@ -92,10 +92,10 @@ export function PaymentForm({
       )}
 
       <div className="flex justify-end gap-2">
-        <Button type="button" variant="outline" onClick={onCancel}>
+        <Button className="h-10 px-4" type="button" variant="outline" onClick={onCancel}>
           Отмена
         </Button>
-        <Button type="submit" disabled={isPending}>
+        <Button className="h-10 px-4" type="submit" disabled={isPending}>
           {isPending ? "Сохранение..." : "Сохранить"}
         </Button>
       </div>

@@ -62,7 +62,7 @@ export function ChangeAppointmentStatus({
       disabled={isPending}
     >
       <SelectTrigger
-        className="h-8 w-[160px]"
+        className="data-[size=sm]:h-8! h-8! w-[160px] px-2.5! py-1! text-sm! [&_svg]:size-4!"
         size="sm"
         aria-label="Статус записи"
       >
@@ -70,9 +70,9 @@ export function ChangeAppointmentStatus({
           {APPOINTMENT_STATUS_LABEL[appointment.status]}
         </SelectValue>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="text-sm!">
         {STATUS_OPTIONS.map((status) => (
-          <SelectItem key={status} value={status}>
+          <SelectItem key={status} value={status} className="px-2.5! py-1.5! text-sm!">
             {APPOINTMENT_STATUS_LABEL[status]}
           </SelectItem>
         ))}

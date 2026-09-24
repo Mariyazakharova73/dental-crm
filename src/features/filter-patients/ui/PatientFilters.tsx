@@ -49,7 +49,10 @@ export function PatientFilters({
           onCommentFilterChange(value as PatientCommentFilter)
         }
       >
-        <SelectTrigger className="w-full sm:w-48 md:w-56">
+        <SelectTrigger
+          size="sm"
+          className="data-[size=sm]:h-8! w-full px-2.5! py-1! text-sm! sm:w-48 md:w-56"
+        >
           <SelectValue placeholder="Фильтр">{selectedLabel}</SelectValue>
         </SelectTrigger>
         <SelectContent>

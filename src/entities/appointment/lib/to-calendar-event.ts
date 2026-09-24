@@ -12,6 +12,16 @@ const STATUS_COLOR = {
   [APPOINTMENT_STATUS.CANCELLED]: "#ef4444",
 } as const;
 
+function formatInitials(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length <= 1) return parts[0] ?? name;
+
+  return `${parts[0]} ${parts
+    .slice(1)
+    .map((part) => `${part[0]}.`)
+    .join(" ")}`;
+}
+
 export function toCalendarEvent(
   appointment: AppointmentListItem,
   durationMinutes?: number,
@@ -20,13 +30,15 @@ export function toCalendarEvent(
   const minutes = durationMinutes ?? DEFAULT_DURATION_MIN;
 
   const patientName = appointment.patient
-    ? getFullName(appointment.patient)
+    ? formatInitials(getFullName(appointment.patient))
     : "Пациент";
-  const doctorName = appointment.doctor?.name ?? "Врач";
+  const doctorName = appointment.doctor
+    ? formatInitials(appointment.doctor.name)
+    : "Врач";
 
   return {
     id: String(appointment.id),
-    title: `${patientName} · ${doctorName}`,
+    title: `${doctorName} · ${patientName}`,
     start: appointment.date,
     end: addMinutes(start, minutes).toISOString(),
     backgroundColor: STATUS_COLOR[appointment.status],

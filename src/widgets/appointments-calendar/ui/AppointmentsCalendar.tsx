@@ -4,6 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import ruLocale from "@fullcalendar/core/locales/ru";
 import { toCalendarEvent, useAppointments } from "@/entities/appointment";
 import { useServices } from "@/entities/service";
 import { useMemo } from "react";
@@ -42,7 +43,19 @@ export function AppointmentsCalendar() {
           center: "title",
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
+        locales={[ruLocale]}
         locale="ru"
+        buttonText={{
+          today: "Сегодня",
+          month: "Месяц",
+          week: "Неделя",
+          day: "День",
+        }}
+        eventTimeFormat={{
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }}
         height="auto"
         slotMinTime="08:00:00"
         slotMaxTime="21:00:00"

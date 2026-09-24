@@ -34,7 +34,7 @@ export function AppointmentTableView({
   onSort,
 }: AppointmentTableViewProps) {
   return (
-    <div className="rounded-xl border">
+    <div className="bg-card overflow-hidden rounded-xl border shadow-md shadow-slate-900/10 ring-1 ring-border/30 dark:shadow-black/60 dark:ring-white/10">
       <Table>
         <TableHeader>
           <TableRow>
