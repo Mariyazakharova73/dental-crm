@@ -387,6 +387,15 @@
       "comment": "",
       "status": "confirmed",
       "id": 17
+    },
+    {
+      "patientId": 3,
+      "doctorId": 3,
+      "serviceId": 2,
+      "date": "2026-09-11T19:02",
+      "comment": "",
+      "status": "created",
+      "id": 18
     }
   ],
   "payments": [
