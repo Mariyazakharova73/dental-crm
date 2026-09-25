@@ -396,6 +396,15 @@
       "comment": "",
       "status": "created",
       "id": 18
+    },
+    {
+      "patientId": 4,
+      "doctorId": 2,
+      "serviceId": 2,
+      "date": "2026-09-11T19:04",
+      "comment": "",
+      "status": "created",
+      "id": 19
     }
   ],
   "payments": [
