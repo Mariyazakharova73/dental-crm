@@ -28,6 +28,7 @@ export function toCalendarEvent(
 ) {
   const start = parseISO(appointment.date);
   const minutes = durationMinutes ?? DEFAULT_DURATION_MIN;
+  const isPastAppointment = start.getTime() < Date.now();
 
   const patientName = appointment.patient
     ? formatInitials(getFullName(appointment.patient))
@@ -42,5 +43,6 @@ export function toCalendarEvent(
     start: appointment.date,
     end: addMinutes(start, minutes).toISOString(),
     backgroundColor: STATUS_COLOR[appointment.status],
+    classNames: isPastAppointment ? ["is-past"] : undefined,
   };
 }

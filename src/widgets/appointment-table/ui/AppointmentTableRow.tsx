@@ -3,6 +3,7 @@ import { getFullName } from "@/entities/patient";
 import { ChangeAppointmentStatus } from "@/features/change-appointment-status";
 import { formatDateTime } from "@/shared/lib/date/format-date";
 import { TableCell, TableRow } from "@/shared/ui/table";
+import { isBefore, parseISO } from "date-fns";
 import { AppointmentRowActions } from "./AppointmentRowActions";
 
 interface AppointmentTableRowProps {
@@ -15,9 +16,10 @@ export function AppointmentTableRow({ appointment }: AppointmentTableRowProps) {
     : `#${appointment.patientId}`;
 
   const doctorLabel = appointment.doctor?.name ?? `#${appointment.doctorId}`;
+  const isPastAppointment = isBefore(parseISO(appointment.date), new Date());
 
   return (
-    <TableRow>
+    <TableRow className={isPastAppointment ? "opacity-60" : undefined}>
       <TableCell className="font-medium">
         {formatDateTime(appointment.date)}
       </TableCell>

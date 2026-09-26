@@ -45,6 +45,10 @@
   font-weight: 600;
 }
 
+.appointments-calendar .fc-event.is-past {
+  opacity: 0.6;
+}
+
 /* Окно «+ещё N» */
 .appointments-calendar .fc-popover {
   min-width: 23rem;
