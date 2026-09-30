@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useAppointments } from "@/entities/appointment";
 import {
   ChartContainer,
@@ -14,8 +15,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/shared/ui/select";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { getAppointmentsChartData } from "../lib/get-appointments-chart-data";
+import {
+  APPOINTMENTS_CHART_PERIOD,
+  getAppointmentsChartData,
+  type AppointmentsChartPeriod,
+} from "../lib/get-appointments-chart-data";
 
 const chartConfig = {
   count: {
@@ -25,15 +37,53 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function DashboardAppointmentsChart() {
+  const [period, setPeriod] = useState<AppointmentsChartPeriod>(
+    APPOINTMENTS_CHART_PERIOD.WEEK,
+  );
   const appointmentsQuery = useAppointments();
-  const data = getAppointmentsChartData(appointmentsQuery.data?.data ?? []);
+  const data = getAppointmentsChartData(
+    appointmentsQuery.data?.data ?? [],
+    period,
+  );
   const hasAppointments = data.some((item) => item.count > 0);
+
+  const periodLabel =
+    period === APPOINTMENTS_CHART_PERIOD.WEEK
+      ? "Последние 7 дней"
+      : period === APPOINTMENTS_CHART_PERIOD.THIRTY_DAYS
+        ? "Последние 30 дней"
+        : "Текущий месяц";
 
   return (
     <Card>
-      <CardHeader className="border-b">
-        <CardTitle className="text-xl">Записи за неделю</CardTitle>
-        <CardDescription>Количество приёмов за последние 7 дней</CardDescription>
+      <CardHeader className="flex flex-col gap-3 border-b sm:flex-row sm:items-start sm:justify-between">
+        <div className="space-y-1">
+          <CardTitle className="text-xl">Записи</CardTitle>
+          <CardDescription>Количество приёмов: {periodLabel.toLowerCase()}</CardDescription>
+        </div>
+        <Select
+          value={period}
+          onValueChange={(value) => {
+            if (value) {
+              setPeriod(value as AppointmentsChartPeriod);
+            }
+          }}
+        >
+          <SelectTrigger size="sm" aria-label="Период графика">
+            <SelectValue>{periodLabel}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={APPOINTMENTS_CHART_PERIOD.WEEK}>
+              Последние 7 дней
+            </SelectItem>
+            <SelectItem value={APPOINTMENTS_CHART_PERIOD.THIRTY_DAYS}>
+              Последние 30 дней
+            </SelectItem>
+            <SelectItem value={APPOINTMENTS_CHART_PERIOD.CURRENT_MONTH}>
+              Текущий месяц
+            </SelectItem>
+          </SelectContent>
+        </Select>
       </CardHeader>
 
       <CardContent className="pt-4">
@@ -66,6 +116,7 @@ export function DashboardAppointmentsChart() {
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
+                  interval={period === APPOINTMENTS_CHART_PERIOD.WEEK ? 0 : 4}
                 />
                 <YAxis
                   allowDecimals={false}
