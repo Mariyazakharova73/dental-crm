@@ -101,7 +101,7 @@ export function DashboardAppointmentsChart() {
           !appointmentsQuery.isError &&
           !hasAppointments && (
             <p className="text-muted-foreground flex h-[280px] items-center justify-center text-sm">
-              Записей за последние 7 дней нет
+              Записей за {periodLabel.toLowerCase()} нет
             </p>
           )}
 

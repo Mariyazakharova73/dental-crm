@@ -85,7 +85,7 @@ export function DashboardStats() {
       value: String(awaitingConfirmationCount),
     },
     {
-      label: "Оплачено всего",
+      label: "Оплачено за всё время",
       value: formatServicePrice(paymentSummary.paid),
     },
   ];
