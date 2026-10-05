@@ -409,25 +409,25 @@
   ],
   "payments": [
     {
-      "id": 1,
       "patientId": 1,
       "amount": 3500,
       "date": "2026-09-20",
-      "status": "paid"
+      "status": "paid",
+      "id": 1
     },
     {
-      "id": 2,
       "patientId": 2,
       "amount": 4500,
       "date": "2026-09-01",
-      "status": "pending"
+      "status": "paid",
+      "id": 2
     },
     {
-      "id": 3,
       "patientId": 3,
       "amount": 80000,
       "date": "2026-09-05",
-      "status": "partial"
+      "status": "pending",
+      "id": 3
     },
     {
       "patientId": 13,
