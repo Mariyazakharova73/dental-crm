@@ -1,5 +1,5 @@
 export const PAYMENT_STATUS_LABEL = {
-  pending: "Не оплачен",
-  partial: "Частично",
+  pending: "Ожидает оплаты",
+  partial: "Частично оплачен",
   paid: "Оплачен",
 } as const;
