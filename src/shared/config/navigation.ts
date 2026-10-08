@@ -67,6 +67,7 @@ export const navigationItems: NavItem[] = [
     href: routes.finance,
     icon: Wallet,
     keywords: ["finance", "доход", "аналитика"],
+    disabled: true,
   },
   {
     title: routeLabels.tasks,
