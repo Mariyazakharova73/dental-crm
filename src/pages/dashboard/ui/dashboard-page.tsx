@@ -1,8 +1,8 @@
 "use client";
 
-import { DashboardAppointmentsChart } from '@/widgets/dashboard-appointments-chart/ui/dashboard-appointments-chart';
+import { DashboardAppointmentsChart } from "@/widgets/dashboard-appointments-chart";
 import { DashboardStats } from "@/widgets/dashboard-stats";
-import { DashboardUpcomingAppointments } from "@/widgets/dashboard-upcoming-appointments/ui/dashboard-upcoming-appointments";
+import { DashboardUpcomingAppointments } from "@/widgets/dashboard-upcoming-appointments";
 
 export function DashboardPage() {
   return (
